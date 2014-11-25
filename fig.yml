@@ -1,0 +1,19 @@
+phabmariadb:
+    image: hachque/mariadb
+    volumes: 
+        - mysql/:/var/lib/mysql
+        - config/my.cnf:/var/lib/mysql/my.cnf
+
+phabricator: 
+    image: hachque/phabricator 
+    ports: 
+        - "843:843"
+        - "22280:22280"
+        - "8080:80"
+        - "8443:443"
+    volumes:
+        - config/:/config
+        - repo/:/var/repo
+    links:
+        - phabmariadb:linked_mariadb
+

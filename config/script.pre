@@ -1,0 +1,9 @@
+#!/bin/bash
+
+./bin/config set mysql.host "$LINKED_MARIADB_PORT_3306_TCP_ADDR"
+./bin/config set mysql.port "$LINKED_MARIADB_PORT_3306_TCP_PORT"
+./bin/config set mysql.user "<username>"
+./bin/config set mysql.pass '<password>'
+./bin/config set phabricator.base-uri '<fullurl>'
+
+./bin/phd restart
